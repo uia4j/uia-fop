@@ -18,7 +18,11 @@ So I create this libary to help me to output a temporary __XSL-FO__ template whi
 
 * Design __XSL-FO__ template and output XML result.
 
-### Content Builders
+* Integrated with XSLT.
+
+* Ouput the PDF file.
+
+### Choose Content Builders
 
 #### Form Builder
 
@@ -266,7 +270,6 @@ So I create this libary to help me to output a temporary __XSL-FO__ template whi
     </fo:root>
     ```
 
-
 ### Integrated with XSLT
 
 Create a new XSLT file and add XSL-FO into it manually.
@@ -283,7 +286,7 @@ Create a new XSLT file and add XSL-FO into it manually.
 </xsl:stylesheet>
 ```
 
-Uuse `xsl:for-each` to bind data to rows of the table.
+Use `xsl:for-each` to bind data to rows of the table.
 ```xml
 <xsl:for-each select="catalog/cd">
     <fo:table-row>
@@ -292,6 +295,13 @@ Uuse `xsl:for-each` to bind data to rows of the table.
 </xsl:for-each>
 ```
 
+### Output the PDF file
+```java
+PdfFile.newInstance().save(
+        new File("output.pdf"),
+        new File("data.xml"),
+        new File("data.xslt"));
+```
 
 ### Public References
 
