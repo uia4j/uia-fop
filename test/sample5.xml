@@ -1,0 +1,74 @@
+<orders>
+    <order>
+        <id>MA-00419-191023-01</id>
+        <name>MA-00419</name>
+        <dscription>Line A</dscription>
+        <runBeginTime>2019-10-23 08:00</runBeginTime>
+        <runEndTime>2019-10-23 18:00</runEndTime>
+        <workGroup>Line A WG009</workGroup>
+        <qaGroup>QA 002</qaGroup>
+        <freqName>Monthly</freqName>
+        <items>
+            <item>
+                <seqNo>10</seqNo>
+                <itemName>Item A</itemName>
+                <maResult>OK</maResult>
+                <maRemark></maRemark>
+            </item>
+            <item>
+                <seqNo>20</seqNo>
+                <itemName>Item B</itemName>
+                <maResult>NG</maResult>
+                <maRemark>Broken</maRemark>
+            </item>
+            <item>
+                <seqNo>30</seqNo>
+                <itemName>Item C</itemName>
+                <maResult>OK</maResult>
+                <maRemark></maRemark>
+            </item>
+            <item>
+                <seqNo>40</seqNo>
+                <itemName>Item D</itemName>
+                <maResult>OK</maResult>
+                <maRemark></maRemark>
+            </item>
+        </items>
+    </order>
+    <order>
+        <id>MA-00419-191023-02</id>
+        <name>MA-00419</name>
+        <dscription>Line B</dscription>
+        <runBeginTime>2019-10-23 08:00</runBeginTime>
+        <runEndTime>2019-10-23 18:00</runEndTime>
+        <workGroup>Line B WG0029</workGroup>
+        <qaGroup>QA 002</qaGroup>
+        <freqName>Monthly</freqName>
+        <items>
+            <item>
+                <seqNo>10</seqNo>
+                <itemName>Item A</itemName>
+                <maResult>OK</maResult>
+                <maRemark></maRemark>
+            </item>
+            <item>
+                <seqNo>20</seqNo>
+                <itemName>Item B</itemName>
+                <maResult>NG</maResult>
+                <maRemark>Broken</maRemark>
+            </item>
+            <item>
+                <seqNo>30</seqNo>
+                <itemName>Item C</itemName>
+                <maResult>OK</maResult>
+                <maRemark></maRemark>
+            </item>
+            <item>
+                <seqNo>40</seqNo>
+                <itemName>Item D</itemName>
+                <maResult>OK</maResult>
+                <maRemark></maRemark>
+            </item>
+        </items>
+    </order>
+</orders>
