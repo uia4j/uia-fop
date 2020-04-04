@@ -272,36 +272,85 @@ So I create this libary to help me to output a temporary __XSL-FO__ template whi
 
 ### Integrated with XSLT
 
-Create a new XSLT file and add XSL-FO into it manually.
+* Create a new XSLT file and add XSL-FO into it manually.
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet
-    version="1.0"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:fo="http://www.w3.org/1999/XSL/Format">
-    <xsl:template match="/">
-      <!-- XSL-FO template here -->
-    </xsl:template>
-</xsl:stylesheet>
-```
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <xsl:stylesheet
+        version="1.0"
+        xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+        xmlns:fo="http://www.w3.org/1999/XSL/Format">
+        <xsl:template match="/">
+          <!-- XSL-FO template here -->
+        </xsl:template>
+    </xsl:stylesheet>
+    ```
 
-Use `xsl:for-each` to bind data to rows of the table.
-```xml
-<xsl:for-each select="catalog/cd">
-    <fo:table-row>
-      <!-- fo:table-cell -->
-    </fo:table-row>
-</xsl:for-each>
-```
+* Use `xsl:for-each` to bind data to rows of the table.
+
+    ```xml
+    <xsl:for-each select="catalog/cd">
+        <fo:table-row>
+          <!-- fo:table-cell -->
+        </fo:table-row>
+    </xsl:for-each>
+    ```
+
+* Modify to meet the requirement ...
 
 ### Output the PDF file
-```java
-PdfFile.newInstance().save(
-        new File("output.pdf"),
-        new File("data.xml"),
-        new File("data.xslt"));
-```
+* XML model
+
+    ```xml
+    <order>
+        <id>MA-00419-191023-01</id>
+        <name>MA-00419</name>
+        <dscription>Line A</dscription>
+        <runBeginTime>2019-10-23 08:00</runBeginTime>
+        <runEndTime>2019-10-23 18:00</runEndTime>
+        <workGroup>Line A WG009</workGroup>
+        <qaGroup>QA 002</qaGroup>
+        <freqName>Monthly</freqName>
+        <items>
+            <item>
+                <seqNo>10</seqNo>
+                <itemName>Item A</itemName>
+                <maResult>OK</maResult>
+                <maRemark></maRemark>
+            </item>
+            <item>
+                <seqNo>20</seqNo>
+                <itemName>Item B</itemName>
+                <maResult>NG</maResult>
+                <maRemark>Broken</maRemark>
+            </item>
+            <item>
+                <seqNo>30</seqNo>
+                <itemName>Item C</itemName>
+                <maResult>OK</maResult>
+                <maRemark></maRemark>
+            </item>
+            <item>
+                <seqNo>40</seqNo>
+                <itemName>Item D</itemName>
+                <maResult>OK</maResult>
+                <maRemark></maRemark>
+            </item>
+        </items>
+    </order>
+    ```
+
+* The Java Code
+    ```java
+    PdfFile.newInstance().save(
+            new File("output.pdf"),
+            new File("data.xml"),
+            new File("data.xslt"));
+    ```
+
+* The Output (ex: test/example5)
+
+    ![](images/sample1.png)
 
 ### Public References
 

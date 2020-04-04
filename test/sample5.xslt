@@ -85,7 +85,7 @@
                                         <fo:block
                                             font-weight="bold"
                                             text-align="right"
-                                            margin-right="2mm">保養計畫</fo:block>
+                                            margin-right="2mm">Name</fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell>
                                         <fo:block>
@@ -96,7 +96,7 @@
                                         <fo:block
                                             font-weight="bold"
                                             text-align="right"
-                                            margin-right="2mm">工作群組</fo:block>
+                                            margin-right="2mm">Work Group</fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell>
                                         <fo:block>
@@ -109,7 +109,7 @@
                                         <fo:block
                                             font-weight="bold"
                                             text-align="right"
-                                            margin-right="2mm">說明</fo:block>
+                                            margin-right="2mm">Description</fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell>
                                         <fo:block>
@@ -120,7 +120,7 @@
                                         <fo:block
                                             font-weight="bold"
                                             text-align="right"
-                                            margin-right="2mm">品保群組</fo:block>
+                                            margin-right="2mm">QA Group</fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell>
                                         <fo:block>
@@ -133,7 +133,7 @@
                                         <fo:block
                                             font-weight="bold"
                                             text-align="right"
-                                            margin-right="2mm">開始時間</fo:block>
+                                            margin-right="2mm">Begin Time</fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell>
                                         <fo:block>
@@ -144,7 +144,7 @@
                                         <fo:block
                                             font-weight="bold"
                                             text-align="right"
-                                            margin-right="2mm">頻率</fo:block>
+                                            margin-right="2mm">MA Type</fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell>
                                         <fo:block>
@@ -157,7 +157,7 @@
                                         <fo:block
                                             font-weight="bold"
                                             text-align="right"
-                                            margin-right="2mm">結束時間</fo:block>
+                                            margin-right="2mm">End Time</fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell>
                                         <fo:block>
@@ -187,23 +187,22 @@
                                     <fo:table-cell>
                                         <fo:block
                                             font-weight="bold"
-                                            text-align="center">項次</fo:block>
+                                            text-align="center">Seq No</fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell>
                                         <fo:block
                                             font-weight="bold"
-                                            text-align="center">保養項目名稱
-                                        </fo:block>
+                                            text-align="center">Item Name </fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell>
                                         <fo:block
                                             font-weight="bold"
-                                            text-align="center">結果</fo:block>
+                                            text-align="center">Result</fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell>
                                         <fo:block
                                             font-weight="bold"
-                                            text-align="center">備註</fo:block>
+                                            text-align="center">Remark</fo:block>
                                     </fo:table-cell>
                                 </fo:table-row>
                             </fo:table-header>
