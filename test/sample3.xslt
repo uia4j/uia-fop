@@ -14,7 +14,9 @@
                     <fo:region-body region-name="data-body" />
                 </fo:simple-page-master>
             </fo:layout-master-set>
-            <fo:page-sequence master-reference="cd">
+            <fo:page-sequence 
+                master-reference="cd"
+                font-family="Arial,sans-serif,SimHei">
                 <fo:flow flow-name="data-body">
                     <fo:table>
                         <fo:table-column column-width="20%" />

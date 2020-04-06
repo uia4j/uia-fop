@@ -19,13 +19,13 @@ public class FoXMLTest {
         FoPage area = xml.addPage("MA_ORDER_REPORT");
         // body
         new FormBuilder(2)
-                .addLabel("保養工單", 0, 0, "order/name")
-                .addLabel("說明", 1, 0, "order/description")
-                .addLabel("開始時間", 2, 0, "order/runBeginTime")
-                .addLabel("結束時間", 3, 0, "order/runEndTime")
-                .addLabel("工作群組", 0, 1, "order/workGroup")
-                .addLabel("品保群組", 1, 1, "order/qaGroup")
-                .addLabel("頻率", 2, 1, "order/freqName")
+                .addInfo("保養工單", 0, 0, "order/name")
+                .addInfo("說明", 1, 0, "order/description")
+                .addInfo("開始時間", 2, 0, "order/runBeginTime")
+                .addInfo("結束時間", 3, 0, "order/runEndTime")
+                .addInfo("工作群組", 0, 1, "order/workGroup")
+                .addInfo("品保群組", 1, 1, "order/qaGroup")
+                .addInfo("頻率", 2, 1, "order/freqName")
                 .applyToBody(area);
         new TableBuilder(4)
                 .createHeaders(new String[] { "項次", "保養項目名稱", "結果", "備註" })

@@ -25,6 +25,16 @@
 			<artifactId>fop</artifactId>
 			<version>2.4</version>
 		</dependency>
+        <dependency>
+            <groupId>org.docx4j</groupId>
+            <artifactId>docx4j</artifactId>
+            <version>6.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.docx4j</groupId>
+            <artifactId>docx4j-export-fo</artifactId>
+            <version>3.3.0</version>
+        </dependency>
 		<dependency>
 			<groupId>org.uia.solution</groupId>
 			<artifactId>uia-utils</artifactId>

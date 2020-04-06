@@ -5,6 +5,7 @@ import java.util.List;
 import uia.fop.template.FoTableBuilder;
 
 import xml.xslfo.Block;
+import xml.xslfo.DisplayAlignType;
 import xml.xslfo.Table;
 import xml.xslfo.TableBody;
 import xml.xslfo.TableCell;
@@ -21,7 +22,7 @@ public class SimpleFormBuilder extends FoTableBuilder {
 
     public SimpleFormBuilder(int columns) {
         this.table = new Table();
-        this.table.setMarginBottom("1cm");
+        this.table.setMarginBottom("3mm");
         this.columns = columns;
 
         // columns
@@ -39,6 +40,14 @@ public class SimpleFormBuilder extends FoTableBuilder {
 
     @Override
     public Table result() {
+        for (TableRow row : this.tableBody.getTableRow()) {
+            for (TableCell cell : row.getTableCell()) {
+                if (cell.getMarkerOrBlockOrBlockContainer().isEmpty()) {
+                    cell.getMarkerOrBlockOrBlockContainer()
+                            .add(new Block());
+                }
+            }
+        }
         return this.table;
     }
 
@@ -70,6 +79,8 @@ public class SimpleFormBuilder extends FoTableBuilder {
         List<TableRow> rows = this.tableBody.getTableRow();
         while (rows.size() < (rowIndex + 1)) {
             TableRow row = new TableRow();
+            row.setDisplayAlign(DisplayAlignType.CENTER);
+            row.setHeight("16px");
             List<TableCell> cells = row.getTableCell();
             for (int i = 0; i < this.columns; i++) {
                 TableCell cell = new TableCell();

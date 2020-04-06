@@ -3,6 +3,7 @@ package uia.fop.template.builder;
 import uia.fop.template.FoTableBuilder;
 
 import xml.xslfo.Block;
+import xml.xslfo.DisplayAlignType;
 import xml.xslfo.Table;
 import xml.xslfo.TableBody;
 import xml.xslfo.TableCell;
@@ -18,21 +19,21 @@ public class TableBuilder extends FoTableBuilder {
 
     private TableBody tableBody;
 
-    private int columns;
+    private int columnCount;
 
-    public TableBuilder(int columns) {
+    public TableBuilder(int columnCount) {
         this.table = new Table();
         this.table.setTableLayout(TableLayoutType.AUTO);
         this.table.getMargin().add("0.1mm");
         this.table.setBorder("solid 0.3mm black");
-        this.columns = columns;
+        this.columnCount = columnCount;
 
         // columns
-        int w = 100 / columns;
-        for (int i = 0; i < columns; i++) {
+        int w = 100 / columnCount;
+        for (int i = 0; i < columnCount; i++) {
             TableColumn col = new TableColumn();
-            col.getColumnWidth().add(w + "%");
             col.setBorder("solid 0.1mm black");
+            col.getColumnWidth().add(w + "%");
             this.table.getTableColumn().add(col);
         }
 
@@ -46,11 +47,25 @@ public class TableBuilder extends FoTableBuilder {
         return this.table;
     }
 
+    public TableBuilder columnWidth(int columnIndex, String width) {
+        this.table.getTableColumn().get(columnIndex).getColumnWidth().clear();
+        this.table.getTableColumn().get(columnIndex).getColumnWidth().add(width);
+        return this;
+    }
+
+    public TableBuilder headerHeight(String headerHeight) {
+        this.table.getTableHeader().getTableRow().get(0).setHeight(headerHeight);
+        return this;
+    }
+
     public TableBuilder createHeaders(String[] headerNames) {
         // rows
         TableRow row = new TableRow();
-        row.setBorder("solid 0.1mm black");
         row.setBackgroundColor("#eeeeee");
+        row.setBorder("solid 0.1mm black");
+        row.setDisplayAlign(DisplayAlignType.CENTER);
+        row.setFontSize("11px");
+        row.setHeight("16px");
         for (String headerName : headerNames) {
             Block block = new Block();
             block.setTextAlign(TextAlignType.CENTER);
@@ -71,7 +86,10 @@ public class TableBuilder extends FoTableBuilder {
         // rows
         TableRow row = new TableRow();
         row.setBorder("solid 0.1mm black");
-        for (int i = 0; i < this.columns; i++) {
+        row.setDisplayAlign(DisplayAlignType.CENTER);
+        row.setFontSize("11px");
+        row.setHeight("16px");
+        for (int i = 0; i < this.columnCount; i++) {
             Block block = new Block();
             block.getContent().add(String.format("<xsl:value-of select=\"%s\" />", paths[i]));
             TableCell cell = new TableCell();

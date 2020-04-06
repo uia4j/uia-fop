@@ -39,7 +39,7 @@ public class PdfFile {
         this.fopConfXml = fopConfXml;
     }
 
-    public void save(File pdfFile, File xmlFile, File xsltFile) throws Exception {
+    public void saveAs(File xmlFile, File xsltFile, File pdfFile) throws Exception {
         try {
             System.out.println(new File(".").getAbsolutePath());
             // configure fopFactory as desired

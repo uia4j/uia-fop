@@ -1,32 +1,41 @@
-XSL-FO Template Generator
+Creation of XSL-FO Template
 ===
 
 ## Movtivation
 I need to generate PDF documents based on XML model and __XSLT__ style sheet. The  __Apach FOP__ framework is a good solution, but the __XSL-FO__ the framework uses is hard to be prepared.
 
-So I create this libary to help me to output a temporary __XSL-FO__ template which meets __60%__ requirement. Then I modify it to meet __100%__ requirement. Finally I use __Apahe FOP__ framework to generate PDF files.
+Therefore I created this libary to help me quickly create a temporary __XSL-FO__ template which meets __60%__ of the requirements. Then I edited it to meet __100%__ requirements. Finally I used __Apahe FOP__ framework to generate PDF files.
 
-## How To Use
 
-* Choose content builders to present content.
+> Due to my poor technology, this library __is not__ a full solution. It just saves the time to __initialize templates__, you need the __XSLT/XSL-FO__ knowledge to edit them to meet all your requirements.
+
+> The libary can export XSL-FO of __Microsot Word__. Maybe you can try to use __Microsot Word__ to design documents and use this libary output XSL-FO result.
+
+## Simple Tutorial
+
+The tutorial will create the document below.
+
+![](images/sample1.png)
+
+
+1. Choose content builders.
   * Form
-  * SimpleForm
   * Table
   * PageNumber
   * ...  _(depending on the requirements)_
 
 
-* Design __XSL-FO__ template and output XML result.
+2. Design __XSL-FO__ template and output XML result.
 
-* Integrated with XSLT.
+3. Integrated with XSLT.
 
-* Ouput the PDF file.
+4. Ouput the PDF file.
 
-### Choose Content Builders
+### 1. Choose Content Builders
 
 #### Form Builder
 
-* The Layout Structure
+1. Thinking of Layout
 
     |row \ col| 0 |  | _1_ |  |
     |---:|---:|---|---:|---|
@@ -35,28 +44,28 @@ So I create this libary to help me to output a temporary __XSL-FO__ template whi
     | _2_ | __Begin Time__ | order/runBeginTime | __MA Type__ | freqName |
     | _3_ | __End Time__ | order/runEndTime|| |
 
-* The Java Code
+2. The Java Code
 
     ```java
     FormBuilder from = new FormBuilder(2)
-        .addLabel("Name", 0, 0, "order/name")
-        .addLabel("Description", 1, 0, "order/description")
-        .addLabel("Begin Time", 2, 0, "order/runBeginTime")
-        .addLabel("End Time", 3, 0, "order/runEndTime")
-        .addLabel("Work Group", 0, 1, "order/workGroup")
-        .addLabel("QA Group", 1, 1, "order/qaGroup")
-        .addLabel("MA Type", 2, 1, "order/freqName");
+        .addInfo("Name", 0, 0, "order/name")
+        .addInfo("Description", 1, 0, "order/description")
+        .addInfo("Begin Time", 2, 0, "order/runBeginTime")
+        .addInfo("End Time", 3, 0, "order/runEndTime")
+        .addInfo("Work Group", 0, 1, "order/workGroup")
+        .addInfo("QA Group", 1, 1, "order/qaGroup")
+        .addInfo("MA Type", 2, 1, "order/freqName");
     ```
 
 #### Table Builder
 
-* The Layout Structure
+1. Thinking of Layout
 
     | Seq No | Item Name | Result | Remark |
     |---|---|---|---|
     | seqNo | itemName | maResult | maRemark |
 
-* The Java Code
+2. The Java Code
 
     ```java
     TableBuilder table = new TableBuilder(4)
@@ -71,22 +80,22 @@ So I create this libary to help me to output a temporary __XSL-FO__ template whi
 
 #### PageNumber Builder
 
-* The Layout Structure
+1. Thinking of Layout
 
     | left | center | right  |
     |---|:---:|---:|
     | | Page Number | |
 
-* The Java Code
+2. The Java Code
 
     ```java
     PageNumberBuilder pn = new PageNumberBuilder()
     ```
 
 
-### Design XSL-FO template
+### 2. Design XSL-FO template
 
-* The Java Code
+1. The Java Code
 
     ```java
     // 1. carete a XML builder (fo:root)
@@ -100,18 +109,18 @@ So I create this libary to help me to output a temporary __XSL-FO__ template whi
     // 3. create a page (fo:page-sequence)
     FoPage page = xml.addPage("MA_ORDER");
 
-    // 4. form as part of the body of the page (fo:flow)
+    // 4. 'form' as part of the body of the page (fo:flow)
     form.applyToBody(page);
-    // 5. form as part of the body of the page (fo:flow)
+    // 5. 'table' as part of the body of the page (fo:flow)
     table.applyToBody(page);
-    // 6. pageNumber at the footer of the page (fo:static-content)
+    // 6. 'pageNumber' at the footer of the page (fo:static-content)
     pn.applyToFooter(page);
 
     // 7. generate the XSL-FO content
     String result = xml.build();
     ```
 
-* XSL-FO Content
+2. Save XSL-FO Content
 
     ```xml
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -270,9 +279,10 @@ So I create this libary to help me to output a temporary __XSL-FO__ template whi
     </fo:root>
     ```
 
-### Integrated with XSLT
+### 3. Integrated with XSLT
+Commonly used tags of XSLT are `xsl:for-each` and `value-of`.
 
-* Create a new XSLT file and add XSL-FO into it manually.
+1. Create a new XSLT file and manually add XSL-FO created above.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -286,20 +296,27 @@ So I create this libary to help me to output a temporary __XSL-FO__ template whi
     </xsl:stylesheet>
     ```
 
-* Use `xsl:for-each` to bind data to rows of the table.
+2. Add `xsl:for-each` to bind data for `fo:table-row`.
 
     ```xml
-    <xsl:for-each select="catalog/cd">
+    <xsl:for-each select="order/items/item">
         <fo:table-row>
           <!-- fo:table-cell -->
         </fo:table-row>
     </xsl:for-each>
     ```
 
-* Modify to meet the requirement ...
+3. Add `value-of` to bind data in right `block`
 
-### Output the PDF file
-* XML model
+    ```xml
+    <fo:block>
+        <xsl:value-of select="order/id" />
+    </fo:block>
+    ```
+4. Modify more to meet the requirements ...
+
+### 4. Output the PDF file
+1. Prepare XML data
 
     ```xml
     <order>
@@ -340,7 +357,7 @@ So I create this libary to help me to output a temporary __XSL-FO__ template whi
     </order>
     ```
 
-* The Java Code
+2. The Java Code
     ```java
     PdfFile.newInstance().save(
             new File("output.pdf"),
@@ -348,12 +365,14 @@ So I create this libary to help me to output a temporary __XSL-FO__ template whi
             new File("data.xslt"));
     ```
 
-* The Output (ex: test/example5)
-
-    ![](images/sample1.png)
-
 ### Public References
 
-* [Apche FOP](https://xmlgraphics.apache.org/fop/)
+* [XSL-FO Tutorial of W3Schools](https://w3schools.sinsixx.com/xslfo/default.asp.htm) - knowledge based.
 
-* [XSF-FO XML Schema](https://svn.apache.org/repos/asf/xmlgraphics/fop/trunk/fop/src/foschema/fop.xsd)
+* [Apche FOP](https://xmlgraphics.apache.org/fop/) - framework used to output PDF files.
+
+* [XSF-FO XML Schema](https://svn.apache.org/repos/asf/xmlgraphics/fop/trunk/fop/src/foschema/fop.xsd) - XSF-FO schema description.
+
+* [docx4j](https://www.docx4java.org/trac/docx4j) - Microsoft Word handler.
+
+* [docx4j-export-FO](https://github.com/plutext/docx4j-export-FO) - Microsoft Word XSL-FO exporter.

@@ -18,9 +18,9 @@ public class FormBuilderTest {
         FoPage page = fo.addPage("order");
         new FormBuilder(2)
                 .addLabel("Title", 0, 0)
-                .addValuePath("title", 0, 0)
+                .addValueSelect("title", 0, 0)
                 .addLabel("Updated Time", 0, 1)
-                .addValuePath("updatedTime", 0, 1)
+                .addValueSelect("updatedTime", 0, 1)
                 .applyToBody(page);
 
         new PageNumberBuilder()

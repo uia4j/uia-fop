@@ -15,8 +15,12 @@
                         region-name="region-body"
                         margin-top="1cm"
                         margin-bottom="1cm" />
-                    <fo:region-before region-name="region-header" />
-                    <fo:region-after region-name="region-footer" />
+                    <fo:region-before
+                        extent="10.0pt"
+                        region-name="region-header" />
+                    <fo:region-after 
+                        extent="10.0pt"
+                        region-name="region-footer" />
                 </fo:simple-page-master>
                 <fo:page-sequence-master master-name="MA_ORDER">
                     <fo:repeatable-page-master-reference master-reference="MA_ORDER_REPORT" />

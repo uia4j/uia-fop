@@ -68,7 +68,7 @@
                                 border="solid 0.1mm black"
                                 background-color="#eeeeee">
                                 <fo:table-cell>
-                                    <fo:block>名稱</fo:block>
+                                    <fo:block>Title</fo:block>
                                 </fo:table-cell>
                                 <fo:table-cell>
                                     <fo:block>Artist</fo:block>
