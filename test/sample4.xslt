@@ -7,8 +7,8 @@
         <fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
             <fo:layout-master-set>
                 <fo:simple-page-master master-name="MA_ORDER_REPORT"
-                                       page-height="29.7cm"
-                                       page-width="21.0cm"
+                                       page-height="21.0cm"
+                                       page-width="29.7cm"
                                        margin="2cm">
                     <fo:region-body region-name="region-body"
                                     margin-top="1cm"
@@ -153,14 +153,13 @@
                         <fo:table table-layout="auto"
                                   border="solid 0.3mm black"
                                   margin="0.1mm">
-                            <fo:table-column column-width="25%"
+                            <fo:table-column column-width="50px"
                                              border="solid 0.1mm black"/>
-                            <fo:table-column column-width="25%"
+                            <fo:table-column column-width="150px"
                                              border="solid 0.1mm black"/>
-                            <fo:table-column column-width="25%"
+                            <fo:table-column column-width="150px"
                                              border="solid 0.1mm black"/>
-                            <fo:table-column column-width="25%"
-                                             border="solid 0.1mm black"/>
+                            <fo:table-column border="solid 0.1mm black"/>
                             <fo:table-header>
                                 <fo:table-row height="16px"
                                               border="solid 0.1mm black"
