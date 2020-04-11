@@ -2,7 +2,7 @@
 	<renderers>
 	   <renderer mime="application/pdf">
 	      <fonts>
-	         <directory>./fonts/</directory>
+	         <directory>conf/fonts/</directory>
 	         <auto-detect/>
 	      </fonts>
 	   </renderer>

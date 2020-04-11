@@ -64,7 +64,7 @@ public class FormBuilder extends FoTableBuilder {
 
         Block block = new Block();
         block.setFontWeight("bold");
-        block.setMarginRight("0.1mm");
+        block.setMarginRight("0.1cm");
         block.setTextAlign(TextAlignType.RIGHT);
         block.getContent().add(label);
         cells.get(2 * columnIndex).getMarkerOrBlockOrBlockContainer().add(block);
@@ -78,7 +78,7 @@ public class FormBuilder extends FoTableBuilder {
 
         Block block = new Block();
         block.setFontWeight("bold");
-        block.setMarginRight("0.1mm");
+        block.setMarginRight("0.1cm");
         block.setTextAlign(TextAlignType.RIGHT);
         block.getContent().add(label);
         cells.get(2 * columnIndex).getMarkerOrBlockOrBlockContainer().add(block);

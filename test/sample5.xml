@@ -2,7 +2,7 @@
     <order>
         <id>MA-00419-191023-01</id>
         <name>MA-00419</name>
-        <dscription>Line A</dscription>
+        <description>Line A</description>
         <runBeginTime>2019-10-23 08:00</runBeginTime>
         <runEndTime>2019-10-23 18:00</runEndTime>
         <workGroup>Line A WG009</workGroup>
@@ -60,14 +60,14 @@
             <item>
                 <seqNo>30</seqNo>
                 <itemName>Item C</itemName>
-                <maResult>OK</maResult>
-                <maRemark></maRemark>
+                <maResult>NG</maResult>
+                <maRemark>Broken</maRemark>
             </item>
             <item>
                 <seqNo>40</seqNo>
                 <itemName>Item D</itemName>
-                <maResult>OK</maResult>
-                <maRemark></maRemark>
+                <maResult>NG</maResult>
+                <maRemark>Broken. 1.reason1. 2.reason.</maRemark>
             </item>
         </items>
     </order>

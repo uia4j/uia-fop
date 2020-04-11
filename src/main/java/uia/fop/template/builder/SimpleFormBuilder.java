@@ -51,7 +51,7 @@ public class SimpleFormBuilder extends FoTableBuilder {
         return this.table;
     }
 
-    public SimpleFormBuilder addValue(String value, int rowIndex, int columnIndex) {
+    public SimpleFormBuilder addValue(Object value, int rowIndex, int columnIndex) {
         TableRow row = buildRow(rowIndex);
         List<TableCell> cells = row.getTableCell();
 
